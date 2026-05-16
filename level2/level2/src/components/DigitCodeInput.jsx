@@ -8,18 +8,17 @@ export default function DigitCodeInput({ onCorrect }) {
 
   const correctCode = "429675";
 
-  const handleChange = (value, index) => {
-    if (/^\d$/.test(value)) {
-      const newDigits = [...digits];
-      newDigits[index] = value;
-      setDigits(newDigits);
-      setError(false);
-      if (index < 5) {
-        inputRefs.current[index + 1].focus();
-      }
+ const handleChange = (value, index) => {
+  if (value === "" || /^\d$/.test(value)) {
+    const newDigits = [...digits];
+    newDigits[index] = value;
+    setDigits(newDigits);
+    setError(false);
+    if (value !== "" && index < 5) {
+      inputRefs.current[index + 1].focus();
     }
-  };
-
+  }
+};
   const handleKeyDown = (e, index) => {
     if (e.key === "Backspace" && !digits[index] && index > 0) {
       inputRefs.current[index - 1].focus();
