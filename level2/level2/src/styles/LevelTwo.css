@@ -2,7 +2,8 @@
 body, html {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+     overflow-x: hidden;  
+  overflow-y: auto;    
     background-color: #0b0b0b;
     font-family: 'Orbitron', 'Courier New', monospace;
     color: #f1f1f1;
@@ -118,7 +119,13 @@ body, html {
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
   }
-  
+  .error-message {
+  color: #ff5555;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
   .shift-dialogue {
     margin-top: 40px;
   }
