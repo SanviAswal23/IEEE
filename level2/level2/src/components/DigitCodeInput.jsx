@@ -20,10 +20,16 @@ export default function DigitCodeInput({ onCorrect }) {
   }
 };
   const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace" && !digits[index] && index > 0) {
+  if (e.key === "Backspace") {
+    if (digits[index]) {
+      const newDigits = [...digits];
+      newDigits[index] = "";
+      setDigits(newDigits);
+    } else if (index > 0) {
       inputRefs.current[index - 1].focus();
     }
-  };
+  }
+};
 
   const handleSubmit = () => {
     const userCode = digits.join("");
